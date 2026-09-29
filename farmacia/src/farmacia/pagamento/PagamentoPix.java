@@ -1,4 +1,6 @@
-package farmacia;
+package farmacia.pagamento;
+
+import farmacia.model.Pagamento;
 
 public class PagamentoPix implements Pagamento {
     @Override

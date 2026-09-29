@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.exception;
 
 public class ReceitaObrigatoriaException extends Exception {
     public ReceitaObrigatoriaException(String nome) {

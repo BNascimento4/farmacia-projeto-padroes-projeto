@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.exception;
 
 public class ProdutoNaoEncontradoException extends Exception {
     public ProdutoNaoEncontradoException(int codigo) {

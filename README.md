@@ -4,7 +4,7 @@ Compilar e rodar (dentro de `farmacia/`):
 ```
 mkdir out
 javac -d out src/farmacia/*.java
-java -cp out farmacia.Main
+java -cp out farmacia.app.Main
 ```
 
 ## Diagrama de classes (Mermaid)

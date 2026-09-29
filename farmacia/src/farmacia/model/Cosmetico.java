@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.model;
 
 public class Cosmetico extends Produto {
     private static final double ACRESCIMO = 0.10; 

@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.model;
 
 public class Medicamento extends Produto {
     public Medicamento(int codigo, String nome, double preco, int estoque) {

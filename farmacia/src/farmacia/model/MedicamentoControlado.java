@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.model;
 
 
 public class MedicamentoControlado extends Medicamento {

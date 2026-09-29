@@ -1,5 +1,11 @@
-package farmacia;
+package farmacia.service;
 
+
+import farmacia.exception.EstoqueInsuficienteException;
+import farmacia.exception.ProdutoNaoEncontradoException;
+import farmacia.repository.ProdutoRepositorio;
+import farmacia.exception.ReceitaObrigatoriaException;
+import farmacia.model.*;
 
 public class VendaService {
     private final ProdutoRepositorio repositorio;

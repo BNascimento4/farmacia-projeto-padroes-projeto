@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.exception;
 
 public class EstoqueInsuficienteException extends Exception {
     public EstoqueInsuficienteException(String nome, int pedido, int disponivel) {

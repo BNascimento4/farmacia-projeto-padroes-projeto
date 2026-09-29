@@ -1,4 +1,13 @@
-package farmacia;
+package farmacia.app;
+
+import farmacia.pagamento.PagamentoFactory;
+import farmacia.repository.ProdutoRepositorio;
+import farmacia.repository.ProdutoRepositorioMemoria;
+import farmacia.exception.EstoqueInsuficienteException;
+import farmacia.exception.ProdutoNaoEncontradoException;
+import farmacia.exception.ReceitaObrigatoriaException;
+import farmacia.model.*;
+import farmacia.service.VendaService;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.model;
 
 
 public interface Pagamento {

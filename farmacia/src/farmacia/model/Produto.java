@@ -1,5 +1,7 @@
-package farmacia;
+package farmacia.model;
 
+
+import farmacia.exception.EstoqueInsuficienteException;
 
 public abstract class Produto {
     private final int codigo;

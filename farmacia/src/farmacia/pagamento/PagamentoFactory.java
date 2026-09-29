@@ -1,4 +1,6 @@
-package farmacia;
+package farmacia.pagamento;
+
+import farmacia.model.Pagamento;
 
 /** Padrão Factory: centraliza a criação do Pagamento a partir de um texto. */
 public class PagamentoFactory {

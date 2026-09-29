@@ -1,4 +1,4 @@
-package farmacia;
+package farmacia.model;
 
 public class Cliente {
     private final String nome;

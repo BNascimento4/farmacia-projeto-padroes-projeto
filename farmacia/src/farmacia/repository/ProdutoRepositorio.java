@@ -1,4 +1,7 @@
-package farmacia;
+package farmacia.repository;
+
+import farmacia.exception.ProdutoNaoEncontradoException;
+import farmacia.model.Produto;
 
 import java.util.List;
 
