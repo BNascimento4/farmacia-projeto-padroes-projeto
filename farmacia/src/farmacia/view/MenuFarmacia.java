@@ -128,6 +128,11 @@ public class MenuFarmacia {
         int tipo = scanner.nextInt();
         scanner.nextLine(); // Limpar o buffer
 
+        if (tipo < 1 || tipo > 3) {
+            System.out.println("-> ERRO: Tipo de produto inválido. Cadastro cancelado.");
+            return;
+        }
+
         System.out.print("Código numérico do produto: ");
         int codigo = scanner.nextInt();
         scanner.nextLine(); // Limpar o buffer
