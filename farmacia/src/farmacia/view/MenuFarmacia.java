@@ -1,5 +1,6 @@
 package farmacia.view;
 
+import farmacia.exception.TipoProdutoInvalidoException;
 import farmacia.pagamento.PagamentoFactory;
 import farmacia.repository.ProdutoRepositorio;
 import farmacia.exception.EstoqueInsuficienteException;
@@ -136,41 +137,37 @@ public class MenuFarmacia {
         int tipo = scanner.nextInt();
         scanner.nextLine();
 
-        if (tipo < 1 || tipo > 3) {
-            System.out.println("-> ERRO: Tipo de produto inválido. Cadastro cancelado.");
-            return;
+        try {
+            if (tipo < 1 || tipo > 3) {
+                throw new TipoProdutoInvalidoException(tipo);
+            }
+
+            int codigo = repositorio.gerarProximoCodigo();
+
+            System.out.print("Nome do produto: ");
+            String nome = scanner.nextLine();
+
+            System.out.print("Preço Base: ");
+            double preco = Double.parseDouble(scanner.nextLine().replace(",", "."));
+
+            System.out.print("Quantidade Inicial em Estoque: ");
+            int estoque = scanner.nextInt();
+            scanner.nextLine();
+
+            Produto novoProduto;
+            switch (tipo) {
+                case 1: novoProduto = new Medicamento(codigo, nome, preco, estoque); break;
+                case 2: novoProduto = new MedicamentoControlado(codigo, nome, preco, estoque); break;
+                case 3: novoProduto = new Cosmetico(codigo, nome, preco, estoque); break;
+                default: throw new TipoProdutoInvalidoException(tipo);
+            }
+
+            repositorio.adicionar(novoProduto);
+            System.out.println(">>> Produto '" + nome + "' (ID: " + codigo + ") cadastrado com sucesso! <<<");
+
+        } catch (TipoProdutoInvalidoException e) {
+            System.out.println("-> ERRO: " + e.getMessage() + " Cadastro cancelado.");
         }
-
-        // O sistema gera o código sozinho aqui, sem interagir com o teclado
-        int codigo = repositorio.gerarProximoCodigo();
-
-        System.out.print("Nome do produto: ");
-        String nome = scanner.nextLine();
-
-        System.out.print("Preço Base: ");
-        double preco = Double.parseDouble(scanner.nextLine().replace(",", "."));
-
-        System.out.print("Quantidade Inicial em Estoque: ");
-        int estoque = scanner.nextInt();
-        scanner.nextLine();
-
-        Produto novoProduto;
-        switch (tipo) {
-            case 1:
-                novoProduto = new Medicamento(codigo, nome, preco, estoque);
-                break;
-            case 2:
-                novoProduto = new MedicamentoControlado(codigo, nome, preco, estoque);
-                break;
-            case 3:
-                novoProduto = new Cosmetico(codigo, nome, preco, estoque);
-                break;
-            default:
-                throw new IllegalStateException("Tipo de produto inesperado: " + tipo);
-        }
-
-        repositorio.adicionar(novoProduto);
-        System.out.println(">>> Produto '" + nome + "' (ID: " + codigo + ") cadastrado com sucesso! <<<");
     }
 
     private void alterarProduto() {
